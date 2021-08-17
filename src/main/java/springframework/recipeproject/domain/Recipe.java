@@ -1,13 +1,12 @@
 package springframework.recipeproject.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Lob;
+import javax.persistence.*;
 
 @Entity
 public class Recipe {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Lob
@@ -22,6 +21,7 @@ public class Recipe {
     @Lob
     private Byte[] image;
 
+    @OneToOne(cascade = CascadeType.ALL)
     private Notes notes;
 
     public Long getId() {

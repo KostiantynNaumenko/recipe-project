@@ -1,19 +1,19 @@
 package springframework.recipeproject.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Lob;
+import javax.persistence.*;
 
 @Entity
 public class Notes {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @OneToOne
     private Recipe recipe;
 
     @Lob
-    private String description;
+    private String recipeNotes;
 
     public Long getId() {
         return id;
@@ -31,11 +31,11 @@ public class Notes {
         this.recipe = recipe;
     }
 
-    public String getDescription() {
-        return description;
+    public String getRecipeNotes() {
+        return recipeNotes;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setRecipeNotes(String recipeNotes) {
+        this.recipeNotes = recipeNotes;
     }
 }
