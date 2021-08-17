@@ -2,7 +2,6 @@ package springframework.recipeproject.domain;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
-import java.math.BigInteger;
 
 @Entity
 public class Ingredient {
@@ -14,7 +13,8 @@ public class Ingredient {
     private String description;
     private BigDecimal amount;
 
-    //private UnitOfMeasure uom;
+    @OneToOne(fetch = FetchType.EAGER)
+    private UnitOfMeasure uom;
 
     @ManyToOne()
     private Recipe recipe;
