@@ -13,7 +13,7 @@ public class UnitOfMeasure {
     private Long id;
 
 
-    private String uom;
+    private String description;
 
     public Long getId() {
         return id;
@@ -23,11 +23,11 @@ public class UnitOfMeasure {
         this.id = id;
     }
 
-    public String getUom() {
-        return uom;
+    public String getDescription() {
+        return description;
     }
 
-    public void setUom(String name) {
-        this.uom = name;
+    public void setDescription(String name) {
+        this.description = name;
     }
 }

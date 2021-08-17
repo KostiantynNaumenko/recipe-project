@@ -6,6 +6,23 @@
 </head>
 <body>
 
-  <h1 th:text="'Recipe App'">Recipe App</h1>
+    <h1 th:text="'Recipe App'">Recipe App</h1>
+
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!--/*@thymesVar id="resipes" type="springframework.recipeproject.domain.Recipe"*/-->
+        <tr th:each="recipe : ${recipes}">
+            <td th:text="${recipe.id}"/>
+            <td th:text="${recipe.description}"/>
+        </tr>
+        </tbody>
+    </table>
+
 </body>
 </html>
