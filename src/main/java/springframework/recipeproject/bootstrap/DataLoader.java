@@ -4,6 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 import springframework.recipeproject.domain.*;
 import springframework.recipeproject.repositories.CategoryRepository;
 import springframework.recipeproject.repositories.RecipeRepository;
@@ -29,6 +30,7 @@ public class DataLoader implements ApplicationListener<ContextRefreshedEvent> {
     }
 
     @Override
+    @Transactional
     public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
         log.debug("on application event");
         recipeRepository.saveAll(getRecipes());
